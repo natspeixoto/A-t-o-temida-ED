@@ -1,0 +1,105 @@
+/**
+ * Dependemos da classe No para aqui funcionar
+ * @author Natália Peixoto
+ *
+ */
+
+public class ListaDupla {
+	private NoDuplo inicio, fim;
+	public ListaDupla() {
+		inicio = null;
+		fim = null;
+	}
+	
+	//inicio - referencia do primeiro nó
+	
+	public void adicionaInicio(int e) {
+		NoDuplo novo=new NoDuplo(e); //recebe por parâmetro
+		if (inicio==null) {
+			inicio=novo;
+			fim=novo;
+		}else {
+			novo.prox = inicio;
+			inicio.ant = novo;
+			inicio = novo;
+		}
+	}
+	//remove retorna o elemento removido
+		public int removeInicio() {
+			int r=-1; //retorna o elemento removido
+			if (inicio != null) {
+				r=inicio.dado;//elemento removido
+				if (inicio.prox != null) {
+					//remove quando tem mais de um No
+					inicio = inicio.prox;
+					inicio.ant = null;
+				}else {
+					//quando só tem um No
+					inicio=null;
+					fim=null;
+					
+				}
+			}else {
+			   System.out.println("Erro! Lista vazia");	
+			
+			}
+			return r;
+		
+		}
+		public void adicionaFinal (int e) {
+		  NoDuplo novo =new NoDuplo (e);
+		  if (inicio == null) {
+			  inicio = novo;
+			  fim = novo;
+		  }else {
+			  fim.prox =novo; //recebe o novo No
+			  novo.ant = fim; //guarda quem era o fim
+			  fim= novo; //atualiza com o novo No
+			  //A sequenci desses comandos não deve ser trocada
+			  	  
+	 	  }
+		 
+	 }
+		//fim.ant - fim anterior
+		  //gabage coletor
+	   public int removeFinal() {
+		   int r=-1;
+		   if  (inicio ==null) { //se lista estiver vazia
+			   System.out.println("Erro! Lista Vazia");
+		   }else {
+			   fim = fim.ant;
+			   fim.prox=null;
+		   }
+		   return r;
+	   }
+	   public String toString() {
+		   String s="";
+		   NoDuplo aux=inicio;
+		   while (aux!=null) {
+			   s = s+ " "+aux.dado; //concatena s = aux.dado
+			   aux=aux.prox;
+		   }
+		return s; //se não tem void, que indica não retorno, tem que ter "return"
+	   }
+	   public static void main (String args[]) {
+		   ListaDupla ld = new ListaDupla ();
+		   ld.adicionaInicio (100);
+		   ld.adicionaInicio (101);
+		   ld.adicionaInicio (102);
+		   System.out.println("Lista "+ ld.toString());
+		   System.out.println("Removido: "+ld.removeInicio());
+		   System.out.println("Removido: "+ld.removeInicio()); 
+		   System.out.println("Removido: "+ld.removeInicio());
+		   System.out.println("Removido: "+ld.removeInicio());
+		   ld.adicionaFinal (201);
+		   ld.adicionaFinal(202);
+		   ld.adicionaFinal(203);
+		   System.out.println("Lista "+ ld.toString());
+		   System.out.println("Removido: "+ld.removeInicio());
+		   System.out.println("Removido: "+ld.removeInicio()); 
+		   System.out.println("Removido: "+ld.removeInicio());
+		   System.out.println("Removido: "+ld.removeInicio());	   
+	   
+	   }    
+	   
+}
