@@ -1,0 +1,12 @@
+
+public class NoDuplo {
+	
+		public NoDuplo ant, prox;
+		public int dado;
+
+		public NoDuplo (int e) {
+			dado=e;
+			ant=null;
+			prox=null;
+		}	
+}
