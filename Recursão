@@ -1,0 +1,56 @@
+// Sem recursividade
+public class Sequencia {
+	public int fatorial (int n) { //inicializa a variável
+		int fat = 1;
+		while (n>1) { 
+			fat=fat *n;
+			n = n - 1;
+		}
+		return fat;
+	}
+	public static void main (String args []) {
+		Sequencia seq = new Sequencia ();
+		System.out.println("4!= "+ seq.fatorial(4));
+		System.out.println("5!= "+ seq.fatorial(5));
+		System.out.println("10!= "+ seq.fatorial(10));
+		System.out.println("14!= "+ seq.fatorial(14));	
+	}
+}
+	//com recursividade
+	public class Sequencia {
+	public int fatorialR (int n) { //inicializa por parâmetro
+		int fat = 1;
+		if (n>1) { //não tem repetição, por isso trocamos por if
+			fat=fat *n;
+			return n * fatorialR (n - 1); //"chamada recursiva do método" Sempre na linha da atualização
+			//da variávelInvoca o fatorial
+	
+	
+		}
+		return 1;
+	}
+	//método main
+	public static void main (String args []) {
+		Sequencia seq = new Sequencia ();
+		System.out.println("4!= "+ seq.fatorial(4));
+		System.out.println("14!= "+ seq.fatorial(14));
+	}
+	//com recursividade
+		public class Sequencia {
+		public int fatorialRp (int n) { //inicializa por parâmetro
+			int fat = 1;
+			if (n<1) { // condição de parada
+				fat=fat *n;
+				return 1; //"chamada recursiva do método" Sempre na linha da atualização
+				//da variávelInvoca o fatorial		
+			}
+			return n * fatorialR (n - 1);
+			}
+		
+		/**
+		 * Exemplo de como a sequência  Fibonacci não é interessante 
+		 * ao método recursivo_no caderno
+		 */
+		}
+	}
+	
